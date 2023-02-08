@@ -38,6 +38,16 @@ router.post("/create", async (req, res) => {
 	}
 })
 
+router.post("/insertMany", async (req, res) => {
+	try {
+		let users = await User.insertMany(req.body, {new: true})
+		users = await User.find({})
+		res.status(201).send(users)
+	} catch (error) {
+		res.status(201).send({ error })
+	}
+})
+
 router.delete("/delete/:userId", async (req, res) => {
 	try {
 		const user = await User.findByIdAndDelete(req.params.userId)
