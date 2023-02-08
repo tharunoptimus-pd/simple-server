@@ -22,7 +22,7 @@ import users from "./api/user.js"
 app.use("/api/users", cors, users)
 
 app.get("/", cors, (_, res) => {
-	res.status(200).send(content)
+	res.status(200).send("API Here")
 })
 
 app.get("/ping", cors, (_, res) => {
