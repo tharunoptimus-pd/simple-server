@@ -13,13 +13,16 @@ new Database().start().then(() => {
 	})
 })
 
-app.use(express.json())
+
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json({ limit: "100mb" }))
 
 // API Routes
 import users from "./api/user.js"
+import upload from "./api/upload.js"
 
 app.use("/api/users", cors, users)
+app.use("/api/upload", cors, upload)
 
 app.get("/", cors, (_, res) => {
 	res.status(200).send("API Here")
