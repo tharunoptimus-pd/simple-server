@@ -7,10 +7,10 @@ dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 3003
 
-new Database().start().then(() => {
-	app.listen(PORT, () => {
-		console.log(`Server running on port ${PORT}`)
-	})
+new Database().start().catch(e => {})
+
+app.listen(PORT, () => {
+	console.log(`Server running on port ${PORT}`)
 })
 
 
