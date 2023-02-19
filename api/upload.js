@@ -19,6 +19,10 @@ router.get("/", (_, res) => {
 	res.send({ message: "UPLOAD API ONLINE" })
 })
 
+router.get("/file", (_, res) => {
+	res.status(200).send({ message: "UPLOAD API ONLINE" })
+})
+
 // a route to upload a file
 router.post("/file", upload.single("file"), (req, res) => {
 	if (!req.file) {
